@@ -34,12 +34,19 @@ RUN make install
 FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
+    python3 python3-pip git wget cmake ninja-build 
+
+RUN apt-get install -y \
     libpcap0.8 \
     libboost-system-dev \
     libboost-filesystem-dev \
     libgmp-dev \
     libmpfr-dev \
-    python3 python3-pip git wget cmake
+    libpcap-dev \
+    libmlpack-dev mlpack-bin libarmadillo-dev \
+    libgflags-dev
+
+RUN pip3 install matplotlib scikit-learn
 
 COPY --from=build_z3 /usr/local/lib /usr/local/lib
 COPY --from=build_z3 /usr/local/include /usr/local/include
