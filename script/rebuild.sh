@@ -19,6 +19,8 @@ fi
 mkdir build && cd $_ && cmake -G Ninja .. && ninja  && cd ..
 if [ $? == 0 ]; then
     echo "Rebuild finished."
+    exit 0
 else
     echo "Rebuild failed."
+    exit -1
 fi
