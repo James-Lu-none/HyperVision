@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 COPY . .
 
 RUN chmod +x ./env/install_all.sh
-RUN bash install_all.sh
+RUN bash ./env/install_all.sh
 
 WORKDIR /HyperVision/env
 RUN chmod +x install_z3.sh
@@ -26,8 +26,9 @@ RUN ./install_z3.sh
 RUN chmod +x install_pcapp.sh
 RUN ./install_pcapp.sh
 
+WORKDIR /HyperVision
+RUN chmod +x ./script/rebuild.sh
+RUN ./script/rebuild.sh
 
-
-
-
+CMD [ "bash" ]
 
