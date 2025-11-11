@@ -27,9 +27,3 @@ apt install libgflags-dev -y
 
 # Install other python libraries
 pip3 install matplotlib scikit-learn
-
-cd env
-chmod +x install_z3.sh
-./install_z3.sh
-chmod +x install_pcapp.sh
-./install_pcapp.sh
