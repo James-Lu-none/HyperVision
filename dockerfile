@@ -1,7 +1,6 @@
 FROM ubuntu:22.04
 
 WORKDIR /HyperVision
-COPY . .
 
 RUN apt-get update && apt-get install -y \
     python3 \ 
@@ -15,8 +14,10 @@ RUN apt-get update && apt-get install -y \
     libmpfr-dev \ 
     libz3-dev \ 
     sudo
+    
+COPY . .
 
-RUN chmod +x install_all.sh
+RUN chmod +x ./env/install_all.sh
 RUN bash install_all.sh
 
 WORKDIR /HyperVision/env
