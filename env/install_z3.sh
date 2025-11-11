@@ -35,7 +35,8 @@ cd $_
 
 python3 scripts/mk_make.py
 cd build
-make -j 64
+nproc=$(nproc)
+make -j ${nproc}
 sudo make install
 
 # back to env
