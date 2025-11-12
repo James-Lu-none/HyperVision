@@ -92,7 +92,7 @@ def f_action(label: List[int], score: List[float]) -> void:
     plt.ylim([0.0, 1.05])
     plt.xlabel('Precision')
     plt.ylabel('Recall')
-    plt.title(f'{args.target} RoC')
+    plt.title(f'{args.target} RPC')
     plt.legend(loc="lower right")
 
     if not os.path.exists(f"./figure/"):
