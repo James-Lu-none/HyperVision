@@ -10,6 +10,7 @@ RUN wget https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.11.0.zip && \
     mv z3-z3-4.11.0 z3
 
 WORKDIR /build/z3
+# Specify installation prefix to install Z3 libraries and headers to /usr/local
 RUN python3 scripts/mk_make.py --prefix=/usr/local
 
 WORKDIR /build/z3/build
@@ -22,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     git wget build-essential cmake libpcap-dev \
     libgmp-dev libmpfr-dev libboost-all-dev \
     ninja-build pkg-config
-
+# PcapPlusPlus has no binary release for aarch64(arm64) in v21.11, so build from source
 WORKDIR /build
 RUN git clone --branch v21.11 https://github.com/seladb/PcapPlusPlus.git
 
@@ -61,4 +62,6 @@ COPY . .
 RUN wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp
 RUN chmod +x script/rebuild.sh && ./script/rebuild.sh
 
-CMD ["/bin/bash"]
+RUN chmod +x /HyperVision/build/HyperVision
+
+ENTRYPOINT ["/HyperVision/build/HyperVision"]
