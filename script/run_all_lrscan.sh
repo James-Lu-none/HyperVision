@@ -2,7 +2,7 @@
 
 set -eux
 
-ninja
+# ninja
 
 
 ARR=(
@@ -19,5 +19,10 @@ ARR=(
 )
 
 for item in ${ARR[@]}; do
-    ./HyperVision -config ../configuration/lrscan/${item}.json > ../cache/${item}.log # &
+    docker run --rm \
+    -v "$(pwd)/data:/HyperVision/data" \
+    -v "$(pwd)/temp:/HyperVision/temp" \
+    -v "$(pwd)/cache:/HyperVision/cache" \
+    hypervision:latest \
+    -c "./HyperVision -config ../configuration/lrscan/${item}.json > ../cache/${item}.log"
 done
