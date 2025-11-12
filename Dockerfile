@@ -58,13 +58,14 @@ RUN ldconfig
 
 WORKDIR /HyperVision
 COPY . .
-
 RUN wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp
-RUN chmod +x script/rebuild.sh && ./script/rebuild.sh
+
+WORKDIR /HyperVision/build
+RUN cmake -G Ninja ..
+RUN ninja
 
 RUN chmod +x /HyperVision/build/HyperVision
 
-WORKDIR /HyperVision/build
 ENTRYPOINT ["/bin/sh"]
 # ENTRYPOINT ["./HyperVision"]
 # CMD ["--help"]
