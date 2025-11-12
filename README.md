@@ -1,3 +1,13 @@
+# quick start
+
+```
+git pull https://github.com/James-Lu-none/HyperVision
+docker pull location0717/hypervision:latest
+cd HyperVision
+./download_dataset.sh
+./script/run_all.sh
+```
+
 # HyperVision
 ![Licence](https://img.shields.io/github/license/fuchuanpu/HyperVision)
 ![Last](https://img.shields.io/github/last-commit/fuchuanpu/HyperVision)
