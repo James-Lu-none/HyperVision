@@ -20,12 +20,14 @@ def analyze_thread_template(task:str) -> None:
 @time_log
 @call_log("Start bacth analyzing.")
 def analyze_group() -> None:
-    pl = []
-    for ts in task_list:
-        pl.append(mp.Process(target=analyze_thread_template, args=(ts,)))
+    # pl = []
+    # for ts in task_list:
+    #     pl.append(mp.Process(target=analyze_thread_template, args=(ts,)))
     
-    [p.start() for p in pl]
-    [p.join() for p in pl]
+    # [p.start() for p in pl]
+    # [p.join() for p in pl]
+    with mp.Pool(processes=4) as pool:
+        pool.map(analyze_thread_template, task_list)
 
 
 if __name__ == '__main__':
