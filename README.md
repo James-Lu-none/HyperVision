@@ -9,7 +9,7 @@ docker pull location0717/hypervision:latest
 # or build docker image locally
 docker build -t hypervision:latest .
 
-./download_dataset.sh
+./script/download_dataset.sh
 ./script/run_all.sh
 ```
 
