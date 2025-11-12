@@ -64,5 +64,7 @@ RUN chmod +x script/rebuild.sh && ./script/rebuild.sh
 
 RUN chmod +x /HyperVision/build/HyperVision
 
-ENTRYPOINT ["/HyperVision/build/HyperVision"]
-CMD ["--help"]
+WORKDIR /HyperVision/build
+ENTRYPOINT ["/bin/sh"]
+# ENTRYPOINT ["./HyperVision"]
+# CMD ["--help"]
