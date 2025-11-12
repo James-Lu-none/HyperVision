@@ -1,9 +1,14 @@
 # quick start
 
-```
+```bash
 git pull https://github.com/James-Lu-none/HyperVision
-docker pull location0717/hypervision:latest
 cd HyperVision
+
+# pull docker image
+docker pull location0717/hypervision:latest
+# or build docker image locally
+docker build -t hypervision:latest .
+
 ./download_dataset.sh
 ./script/run_all.sh
 ```
