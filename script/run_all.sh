@@ -10,7 +10,14 @@ if [ $BASE_NAME != "HyperVision" ] && [ $BASE_NAME != "hypervision" ]; then
 fi
 
 # create necessary directories
-./script/expand.sh
+mkdir -p cache
+mkdir -p temp
+
+# check directories
+if [ ! -d "./data" ]; then
+    echo "data/ directory not found! Please run ./script/download_dataset.sh first."
+    exit -1
+fi
 
 # run HyperVision.
 ./script/run_all_brute.sh
