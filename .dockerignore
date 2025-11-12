@@ -1,6 +1,7 @@
 ./README.md
 ./Dockerfile
 ./gitignore
+./hypervision-dataset.tar.gz
 
 data/
 results_analyze/

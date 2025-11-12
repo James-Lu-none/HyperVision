@@ -2,7 +2,7 @@
 /cache
 /data
 /temp
-
+hypervision-dataset.tar.gz
 json.hpp
 
 /env/*/
