@@ -10,6 +10,6 @@ if [ $BASE_NAME != "HyperVision" ] && [ $BASE_NAME != "hypervision" ]; then
 fi
 
 # Download dataset.
-wget https://hypervision-publish.s3.cn-north-1.amazonaws.com.cn/hypervision-dataset.tar.gz
+wget https://www.hypervision.fuchuanpu.xyz/hypervision-dataset.tar.gz
 tar -xxf hypervision-dataset.tar.gz
 rm $_
