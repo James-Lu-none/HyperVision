@@ -2,3 +2,8 @@
 ./Dockerfile
 
 data/
+results_analyze/
+scripts/
+temp/
+cache/
+env/
