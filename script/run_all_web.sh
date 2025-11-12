@@ -26,3 +26,8 @@ for item in ${ARR[@]}; do
     hypervision:latest \
     -c "./HyperVision -config ../configuration/web/${item}.json > ../cache/${item}.log"
 done
+
+cd ./result_analyze
+./batch_analyzer.py -g web
+cat ./log/web/*.log | grep AU_ROC
+cd -
