@@ -10,8 +10,7 @@ import multiprocessing as mp
 
 def analyze_thread_template(task:str) -> None:
     logging.info(f"Start to analyze {task}")
-    if not os.path.exists(f'./log/{args.group}'):
-        os.mkdir(f"./log/{args.group}")
+    os.makedirs(f"./log/{args.group}", exist_ok=True)
 
     os.system(f"./basic_analyzer.py -t {task}" + 
               f" > ./log/{args.group}/{task}.log")
