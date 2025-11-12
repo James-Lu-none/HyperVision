@@ -10,7 +10,7 @@ RUN wget https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.11.0.zip && \
     mv z3-z3-4.11.0 z3
 
 WORKDIR /build/z3
-RUN python3 scripts/mk_make.py
+RUN python3 scripts/mk_make.py --prefix=/usr/local
 
 WORKDIR /build/z3/build
 RUN make -j"$(nproc)"
@@ -58,6 +58,7 @@ RUN ldconfig
 WORKDIR /HyperVision
 COPY . .
 
+RUN wget https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp
 RUN chmod +x script/rebuild.sh && ./script/rebuild.sh
 
 CMD ["/bin/bash"]
